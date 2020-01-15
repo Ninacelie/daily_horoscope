@@ -1,0 +1,3 @@
+class DailyHoroscope::Signs
+      
+end 
