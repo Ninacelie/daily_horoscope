@@ -50,6 +50,11 @@ class DailyHoroscope::CLI
     end 
 
     def sub_menu_input
+        # after use enters number, program prints 5 horoscope categories for that sign: personal life, professional, health, travel, luck, and emotional
+        # main menu option
+        # exit option
+
+
         # user_input = gets.strip
         #     if user_input.to_i.between?(1, DailyHoroscope::Signs.all.length)
         #         sign = DailyHoroscope::Signs.all[user_input.to_i - 1]
@@ -63,74 +68,8 @@ class DailyHoroscope::CLI
         #     end
         end
 
-
-
-
-
-
-
-
-    # def start
-    #     system('clear') # clears terminal
-    
-    #     puts "Welcome to your daily horoscope!"
-    
-    #     # DailyHoroscope::API.new.get_all_signs # defined in api.rb
-    
-    #     puts "Loading..."
-    #     main_menu_options
-    # end
-
-    # def main_menu_options
-    #     puts "Type '1' to get a list of signs"
-    #     puts "Type 'exit' to exit program"
-    #     main_menu_input
-    # end
-
-    # def sub_menu_options
-    #     puts "Type number associated with sign you'd like to receive a daily horoscope for"
-    #     puts "Type 'exit' to exit program"
-    #     sub_menu_input
-    # end
-    
-    # def main_menu_input
-    #     user_input = gets.strip
-    
-    #     if user_input == "1"
-    #       list_signs
-    #       sub_menu_options
-    #     elsif user_input.downcase == "exit"
-    #       goodbye
-    #     else
-    #       invalid_choice
-    #       main_menu_options
-    #     end
-    # end
-    
-    # def sub_menu_input
-    #     user_input = gets.strip
-        
-    #     if user_input.to_i.between?(1, DailyHoroscope::Signs.all.length) # defined in signs.rb
-    #         sign = DailyHoroscope::Signs.all[user_input.to_i - 1] # defined in signs.rb
-    #         print_sign_details(sign)
-    #         continue?
-    #       elsif user_input.downcase == "exit"
-    #         goodbye
-    #       else
-    #         invalid_choice
-    #         sub_menu_options
-    #       end
-    #     end
-
-    #     def list_signs
-    #         DailyHoroscope::Signs.all.each.with_index(1) do |sign, i|  
-    #           puts "#{i}. #{sign.name}"
-    #         end
-    #       end
-
-
-
-
-
+        def invalid_choice
+            puts "I am not sure what you want to do. Please try again!"
+        end
 
 end 
