@@ -1,7 +1,7 @@
 class DailyHoroscope::CLI 
     
     def start
-        system('clear')
+        system('clear') # just clears the screen 
 
         puts "Welcome to your daily horoscope!"
         main_menu_options 
@@ -27,7 +27,7 @@ class DailyHoroscope::CLI
     end
 
     def list_signs
-        puts <<-DOC.gsub /^\s*/, ''
+        puts <<-DOC.gsub /^\s*/,''
             1. Aries
             2. Taurus
             3. Gemini
@@ -50,26 +50,24 @@ class DailyHoroscope::CLI
     end 
 
     def sub_menu_input
-        # after use enters number, program prints 5 horoscope categories for that sign: personal life, professional, health, travel, luck, and emotional
-        # main menu option
-        # exit option
+        user_input = gets.strip 
+        if user_input == "2"
+            puts "Mercury stations retrograde today. With it comes your need for a deeper understanding of your partner. Or if you are single this will mean that finding someone who matters has never been so important"
+        elsif user_input.downcase == "exit"
+            goodbye 
+        else
+            invalid_choice
+            main_menu_options
+        end 
+    end 
 
+    def goodbye
+        puts "Thank you for using the Daily Horoscope Gem! Goodbye!"
+        exit
+    end
 
-        # user_input = gets.strip
-        #     if user_input.to_i.between?(1, DailyHoroscope::Signs.all.length)
-        #         sign = DailyHoroscope::Signs.all[user_input.to_i - 1]
-        #         print_sign_details(sign)
-        #         continue?
-        #     elsif user_input.downcase == "exit"
-        #         goodbye
-        #     else
-        #         invalid_choice
-        #         sub_menu_options
-        #     end
-        end
-
-        def invalid_choice
-            puts "I am not sure what you want to do. Please try again!"
-        end
+    def invalid_choice
+        puts "I am not sure what you want to do. Please try again!"
+    end
 
 end 
