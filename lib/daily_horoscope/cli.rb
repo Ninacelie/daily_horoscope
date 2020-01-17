@@ -52,7 +52,7 @@ class DailyHoroscope::CLI
     def sub_menu_input
         user_input = gets.strip 
         if user_input == "2"
-            puts "Mercury stations retrograde today. With it comes your need for a deeper understanding of your partner. Or if you are single this will mean that finding someone who matters has never been so important"
+            puts DailyHoroscope::API.new.get_prediction("taurus")
         elsif user_input.downcase == "exit"
             goodbye 
         else
