@@ -1,21 +1,21 @@
+
 class DailyHoroscope::CLI 
     
-    def start
-        system('clear') # just clears the screen 
-
+    def start #run file calls start
+        system('clear') #clears my terminal
         puts "Welcome to your daily horoscope!"
-        main_menu_options 
+        main_menu_options #print main options below
     end 
 
     def main_menu_options
         puts "Type '1' to get a list of all of the astrology signs"
         puts "Type 'exit' to exit the program"
-        main_menu_input
+        main_menu_input #user inputs 1 to list signs 
     end 
 
     def main_menu_input
-        user_input = gets.strip
-        if user_input == "1"
+        user_input = gets.strip #removes white space before and after 
+        if user_input == "1" 
           list_signs
           sub_menu_options
         elsif user_input.downcase == "exit"
@@ -27,20 +27,8 @@ class DailyHoroscope::CLI
     end
 
     def list_signs
-        puts <<-DOC.gsub /^\s*/,''
-            1. Aries
-            2. Taurus
-            3. Gemini
-            4. Cancer
-            5. Leo
-            6. Virgo
-            7. Libra
-            8. Scorpio
-            9. Sagittarius
-            10. Capricorn
-            11. Aquarius
-            12. Pisces 
-        DOC
+        puts "----------------"
+     @@SIGNS.to_enum.with_index { |sign, num| puts "#{num+1}. #{sign}" }
     end
 
     def sub_menu_options
@@ -49,10 +37,32 @@ class DailyHoroscope::CLI
         sub_menu_input
     end 
 
+    @@SIGNS = [ 
+        "Aries", 
+        "Taurus", 
+        "Gemini", 
+        "Cancer", 
+        "Leo", 
+        "Virgo", 
+        "Libra", 
+        "Scorpio", 
+        "Sagittarius", 
+        "Capricorn", 
+        "Aquarius", 
+        "Pisces"
+    ]
+
+    def sign_for_user_input(user_input)
+        @@SIGNS[user_input.to_i - 1]
+    end 
+
+
     def sub_menu_input
-        user_input = gets.strip 
-        if user_input == "2"
-            puts DailyHoroscope::API.new.get_prediction("taurus")
+        user_input = gets.strip
+        sign = sign_for_user_input(user_input) 
+        if user_input.to_i.between?(1,12)
+            puts DailyHoroscope::API.new.get_prediction(sign) 
+            main_menu_options
         elsif user_input.downcase == "exit"
             goodbye 
         else
