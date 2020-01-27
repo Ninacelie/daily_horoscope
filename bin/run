@@ -3,3 +3,33 @@
 require_relative "../lib/environment"
 
 DailyHoroscope::CLI.new.start 
+# aries = DailyHoroscope::HoroscopeSign.new("Aries")
+# virgo = DailyHoroscope::HoroscopeSign.new("Virgo")
+
+# prediction = aries.get_prediction
+# puts prediction 
+
+# prediction = virgo.get_prediction 
+# puts prediction 
+
+# signs = [ 
+#     "Aries", 
+#     "Taurus", 
+#     "Gemini", 
+#     "Cancer", 
+#     "Leo", 
+#     "Virgo", 
+#     "Libra", 
+#     "Scorpio", 
+#     "Sagittarius", 
+#     "Capricorn", 
+#     "Aquarius", 
+#     "Pisces"
+# ]   
+
+# signs.each { |name|
+#     DailyHoroscope::HoroscopeSign.new(name)
+# }
+
+# DailyHoroscope::HoroscopeSign.all.each { |sign| puts sign.get_prediction }
+# DailyHoroscope::HoroscopeSign.all.each { |sign| puts sign.get_prediction }
